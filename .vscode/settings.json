@@ -1,0 +1,6 @@
+{
+  "prettier.tslintIntegration": true,
+  "prettier.stylelintIntegration": true,
+  "stylelint.enable": true,
+  "typescript.tsdk": "node_modules/typescript/lib"
+}
