@@ -8,5 +8,6 @@ export interface ErrorMessage {
   minlength: (error: { requiredLength: number; actualLength: number }) => string;
   maxlength: (error: { requiredLength: number; actualLength: number }) => string;
   pattern: (error: { requiredPattern: string; actualValue: string }) => string;
+  string: (error: string) => string;
   [key: string]: ((error: any) => string) | string;
 }
