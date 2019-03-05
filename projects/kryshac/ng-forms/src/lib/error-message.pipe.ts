@@ -1,7 +1,8 @@
-import { Inject, Pipe, PipeTransform } from '@angular/core';
+import { Inject, Optional, Pipe, PipeTransform } from '@angular/core';
 import { AbstractControl, FormGroup } from '@angular/forms';
 
 import { ErrorMessage } from './error-message.model';
+import { ERROR_MESSAGES } from './error-messages';
 import { ERROR_MESSAGES_TOKEN } from './error-token';
 
 @Pipe({
@@ -9,7 +10,11 @@ import { ERROR_MESSAGES_TOKEN } from './error-token';
   pure: false,
 })
 export class ErrorMessagePipe implements PipeTransform {
-  constructor(@Inject(ERROR_MESSAGES_TOKEN) private _errors: ErrorMessage) {}
+  private _errors: ErrorMessage = ERROR_MESSAGES;
+
+  constructor(@Optional() @Inject(ERROR_MESSAGES_TOKEN) errors: ErrorMessage | null) {
+    this._errors = { ...this._errors, ...errors };
+  }
 
   transform(form: FormGroup, args: string): boolean | string {
     // get control
