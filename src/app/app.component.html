@@ -20,7 +20,7 @@
 
     <div [class.field--error]="form | krError: 'password'" class="field">
       <div class="field__label">Password</div>
-      <input class="field__input" formControlName="password" krEqual="password" matInput placeholder="Password" type="password" />
+      <input class="field__input" formControlName="password" krEqual="password_retype" matInput placeholder="Password" type="password" />
       <div *ngIf="(form | krError: 'password')" class="field__error">{{ form | krErrorMessage: 'password' }}</div>
     </div>
 

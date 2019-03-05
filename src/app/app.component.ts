@@ -1,7 +1,6 @@
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
-// tslint:disable-next-line: no-implicit-dependencies
 import { markNestedAsTouched } from '@kryshac/ng-forms';
 
 @Component({
@@ -27,6 +26,5 @@ export class AppComponent implements OnInit {
 
   submit(): void {
     markNestedAsTouched(this.form);
-    this.form.valid ? console.log('is valid') : console.log('is not valid');
   }
 }
